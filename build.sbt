@@ -8,5 +8,20 @@ lazy val root = project
 
     scalaVersion := scala3Version,
 
-    libraryDependencies += "org.scalameta" %% "munit" % "1.0.0" % Test
+    libraryDependencies += "org.scalameta" %% "munit" % "1.0.0" % Test,
+    testFrameworks += new TestFramework("munit.Framework"),
+
+    libraryDependencies += "org.typelevel" %% "cats-core" % "2.13.0",
+    libraryDependencies += "org.typelevel" %% "cats-effect" % "3.5.7",
+
+    scalacOptions ++= Seq(
+      "-feature",
+      "-deprecation",
+      "-unchecked",
+      "-language:postfixOps",
+      "-language:higherKinds",
+      "-language:implicitConversions",
+      "-Xkind-projector:underscores"
+      )
+
   )
