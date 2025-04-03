@@ -160,7 +160,8 @@ enum Showerproduct {
 val pr1 = Showerproduct.Shampoo(Hairtype.Normal)
 val pr2 = Showerproduct.Soap(7)
 val pr3 = Showerproduct.Mixture(pr1, pr2)
-val pr4 = Showerproduct.Mixture(pr3, Showerproduct.Soap(5))
+val pr4 = Showerproduct.Mixture(Showerproduct.Mixture(pr1, pr2), Showerproduct.Soap(5))
+val pr5 = ShowerProduct.Mixture(pr1, ShowerProduct.Mixture(pr2, ShowerProduct.Soap(5)))
 
 // Eine geometrische Figur (Shape) ist eins der folgenden:
 // - Kreis -ODER-
@@ -327,3 +328,15 @@ def listIndex[A](list: List[A], element: A): Option[Integer] =
           case Some(index) => Some(index+1)
         }
   }
+
+// algebraische Struktur:
+// - Menge/Typ A
+// - Operationen
+// - Gesetze / Gleichungen
+
+// Halbgruppe:
+// - Menge A
+// - op(a1: A, a2: A): A
+// - op(a1, op(a2, a3)) = op(op(a1, a2), a3)  // Assoziativität 
+
+// neutrales Element
