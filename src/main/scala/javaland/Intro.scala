@@ -151,7 +151,7 @@ enum Showerproduct {
       case Shampoo(hairtype) => 0.0
       case Mixture(product1, product2) =>
         // Selbstbezug => rekursiver Aufruf
-      (product1.soapProportion + nproduct2.soapProportion) / 2.0
+      (product1.soapProportion + product2.soapProportion) / 2.0
     }
 }
 
