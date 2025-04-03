@@ -103,3 +103,5 @@ enum Animal {
 val dillo1 = Animal.Dillo(Liveness.Alive, 10)
 // totes Gürteltier, 8kg
 val dillo2 = Animal.Dillo(Liveness.Dead, 8)
+// Begrüßungspapagei
+val parrot1 = Animal.Parrot("Welcome!", 1)
