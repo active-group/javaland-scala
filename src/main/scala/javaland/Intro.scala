@@ -205,7 +205,7 @@ enum Shape {
 // Cons:  ::, Infix
 
 // 1elementige Liste: 5
-val list1 = 5 :: Nil
+val list1: List[Integer] = 5 :: Nil
 
 // 2elementige Liste: 8 5
 val list2 = 8 :: 5 :: Nil
