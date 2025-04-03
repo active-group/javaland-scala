@@ -275,6 +275,6 @@ def partition[A](p: A => Boolean, list: List[A]): (List[A], List[A]) =
   list match {
     case Nil => (Nil, Nil)
     case first :: rest =>
-      val tuple = partition(rest)
+      val tuple = partition(p, rest)
       ???
   }
