@@ -98,3 +98,8 @@ enum Animal {
   case Dillo(liveness: Liveness, weight: Weight) 
   case Parrot(sentence: String, weight: Weight)
 }
+
+// lebendiges Gürteltier, 10kg
+val dillo1 = Animal.Dillo(Liveness.Alive, 10)
+// totes Gürteltier, 8kg
+val dillo2 = Animal.Dillo(Liveness.Dead, 8)
