@@ -58,3 +58,5 @@ val zcb1 = zeroCouponBond(Date("2025-12-24"), 100, Currency.EUR)
 val zcb2 = zeroCouponBond(Date("2025-12-24"), 10000, YEN)
 
 val fxSwap = And(zcb1, Directed(Direction.Short, zcb2))
+
+val c3 = Directed(Direction.Long, c2)
