@@ -62,4 +62,9 @@ val zcb2 = zeroCouponBond(Date("2025-12-24"), 10000, YEN)
 val fxSwap = And(zcb1, Invert(zcb2))
 
 // val c3 = Directed(Direction.Long, c2)
-val c4 = Invert(Invert(c2))
+val c4 = Invert(Invert(c2)) // == c2
+
+case class Payment(direction: Direction, date: Date, amount: Amount, currency: Currency)
+
+// Semantik
+def meaning(contract: Contract): List[Payment] = ???
