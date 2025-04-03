@@ -191,7 +191,26 @@ enum Shape {
         point.x <= llCorner.x + sideLength &&
         point.y <= llCorner.y + sideLength
       case Overlay(shape1, shape2) =>
-        ???
+        shape1.contains(point) || shape2.contains(point)
     }
 }
 
+// Eine Liste ist eins der folgenden:
+// - die leere Liste
+// - eine Cons-Liste aus erstem Element und Rest
+
+// Scala: List[...]
+// leere Liste: Nil
+// Cons:  ::, Infix
+
+// 1elementige Liste: 5
+val list1 = 5 :: Nil
+
+// 2elementige Liste: 8 5
+val list2 = 8 :: 5 :: Nil
+
+// 3elementige Liste
+val list3 = List(4, 8, 5)
+
+// 4elementige Liste: 7 4 8 5
+val list4 = 7 :: list3
