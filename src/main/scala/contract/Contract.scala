@@ -48,4 +48,4 @@ def zeroCouponBond(date: Date, amount: Amount, currency: Currency): Contract =
   Timed(date, More(amount, One(currency)))
 
 val zcb1 = zeroCouponBond(Date("2025-12-24"), 100, Currency.EUR)
-val zcb2 = zeroCouponBond(Date("2025-12-24"), 10000, Yen)
+val zcb2 = zeroCouponBond(Date("2025-12-24"), 10000, YEN)
