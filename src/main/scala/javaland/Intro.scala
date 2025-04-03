@@ -252,7 +252,7 @@ def extractOdds(list: List[Integer]): List[Integer] =
       else extractOdds(rest)
   }
 
-def filter(p: Integer => Boolean, list: List[Integer]): List[Integer] =
+def filter[A](p: A => Boolean, list: List[A]): List[A] =
   list match {
     case Nil => Nil
     case first :: rest => 
