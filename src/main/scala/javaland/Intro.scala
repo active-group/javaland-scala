@@ -214,7 +214,7 @@ val list2: List[Integer] = (8: Integer) :: (5: Integer) :: Nil
 val list3: List[Integer] = List(4, 8, 5)
 
 // 4elementige Liste: 7 4 8 5
-val list4 = 7 :: list3
+val list4 = (7: Integer) :: list3
 
 def listSum(list: List[Integer]): Integer =
   list match {
