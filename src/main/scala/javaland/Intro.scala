@@ -188,7 +188,7 @@ enum Shape {
       case Square(llCorner, sideLength) =>
         point.x >= llCorner.x &&
         point.y >= llCorner.y &&
-        point.y <= llCorner.x + sideLength &&
+        point.x <= llCorner.x + sideLength &&
         point.y <= llCorner.y + sideLength
       case Overlay(shape1, shape2) =>
         ???
