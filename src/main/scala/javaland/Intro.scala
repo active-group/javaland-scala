@@ -168,4 +168,23 @@ val pr4 = Showerproduct.Mixture(pr3, Showerproduct.Soap(5))
 // 1. Datenmodellierung
 // 2. Funktion, die für einen Punkt feststellt, ob er innerhalb
 //    einer geometrischen Figur liegt
+case class Point(x: Double, y: Double)
+
+def distance(point1: Point, point2: Point) = {
+  val dx = point1.x - point2.x
+  val dy = point1.y - point2.y
+  sqrt((dx*dx) + (dy*dy))
+}
+  
+enum Shape {
+  case Circle(center: Point, radius: Double)
+  case Square(llCorner: Point, sideLength: Double)
+  case Overlay(shape1: Shape, shape2: Shape)
+
+  def contains(point: Point): Boolean =
+    this match {
+      case Circle(center, radius) =>
+
+    }
+}
 
