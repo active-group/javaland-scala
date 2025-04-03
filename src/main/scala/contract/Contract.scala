@@ -38,7 +38,8 @@ enum Contract {
   case More(amount: Amount, contract: Contract)
   case Timed(date: Date, contract: Contract)
   case And(contract1: Contract, contract2: Contract)
-  case Directed(direction: Direction, contract: Contract)
+  case Invert(contract: Contract)
+  case Zero
 }
 
 
