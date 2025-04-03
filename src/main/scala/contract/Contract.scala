@@ -11,12 +11,15 @@ package contract
  *    - Später
  *    ... dabei nach Selbstbezügen schauen => Kombinatoren
  * 3. wiederholen
- * 
+ *
  * Currency Swap:
  * Am 24.12.2025 bekomme ich 100€ und ich zahle 10000 Yen.
  */
 
-case class Date(iso: String)
+case class Date(iso: String) {
+  def isBefore(other: Date): Boolean =
+    this.iso < other.iso
+}
 
 type Amount = Double
 
@@ -30,6 +33,11 @@ enum Currency {
 enum Direction {
   case Long
   case Short
+
+  def invert: Direction =
+    this match
+      case Direction.Long => Direction.Short
+      case Direction.Short => Long
 }
 
 enum Contract {
@@ -44,8 +52,29 @@ enum Contract {
 }
 
 
-import Contract._
-import Currency._
+import contract.Contract.*
+import contract.Currency.*
+import contract.Direction.Long
+
+def more(amount: Amount, contract: Contract): Contract = {
+  contract match
+    case Zero => Zero
+    case _ => More(amount, contract)
+}
+
+def and(contract1: Contract, contract2: Contract): Contract = {
+  (contract1, contract2) match
+    case (Zero, _) => contract2
+    case (_, Zero) => contract1
+    case _ => And(contract1, contract2)
+}
+
+def invert(inputContract: Contract): Contract = {
+  inputContract match
+    case Zero => Zero
+    case Invert(contract) => contract
+    case _ => Invert(inputContract)
+}
 
 // "Ich bekomme 1€ jetzt."
 val c1 = One(Currency.EUR)
@@ -65,8 +94,43 @@ val fxSwap = And(zcb1, Invert(zcb2))
 // val c3 = Directed(Direction.Long, c2)
 val c4 = Invert(Invert(c2)) // == c2
 
-case class Payment(direction: Direction, date: Date, amount: Amount, currency: Currency)
+case class Payment(direction: Direction, date: Date, amount: Amount, currency: Currency) {
+  def multiply(multiplier: Amount): Payment =
+    Payment(this.direction, date, this.amount * multiplier, currency)
+
+  def invert: Payment =
+    Payment(this.direction.invert, this.date, this.amount, this.currency)
+}
 
 // Semantik
 // alle Zahlungen bis today ... und "Residualvertrag"
-def meaning(contract: Contract, today: Date): (List[Payment], Contract) = ???
+def meaning(contract: Contract, today: Date): (List[Payment], Contract) =
+  contract match
+    case One(currency) => (List(Payment(Long, today, 1, currency)), Zero)
+
+    case More(amount, contract) => {
+      val (payments, resultContract) = meaning(contract, today)
+      (payments.map(_.multiply(amount)), more(amount, resultContract))
+    }
+
+    case Timed(date, contract) =>
+      if date.isBefore(today) then
+        meaning(contract, today)
+      else
+        (Nil, Timed(date, contract))
+
+    case And(contract1, contract2) => {
+      val (payments1, resultContract1) = meaning(contract1, today)
+      val (payments2, resultContract2) = meaning(contract2, today)
+      (payments1 ++ payments2, and(resultContract1, resultContract2))
+    }
+
+    case Invert(contract) => {
+      val (payments, resultContract) = meaning(contract, today)
+      (payments.map(_.invert), invert(resultContract))
+    }
+
+    case Zero => (Nil, Zero)
+
+
+val c6 = More(100, And(One(EUR), Timed(Date("2025-12-24"), One(EUR))))
