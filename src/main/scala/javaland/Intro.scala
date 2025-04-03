@@ -139,6 +139,23 @@ case class Showergel(soap: Soap, shampoo: Shampoo)
 enum Showerproduct {
   case Soap(pH: PH)
   case Shampoo(hairtype: Hairtype)
-  case Showergel(soap: Soap, shampoo: Shampoo)
-  case Mixture(product1: Showerproduct, product2: Showerproduct)
+  // case Showergel(soap: Soap, shampoo: Shampoo)
+  // Kombinator: 2 Duschprodukte rein, 1 Duschprodukt raus
+  case Mixture(product1: Showerproduct,  // Selbstbezug
+               product2: Showerproduct)
+
+  // Seifenanteil, zwischen 0.0 und 1.0
+  def soapProportion: Double =
+    this match {
+      case Soap(pH) => ???
+      case Shampoo(hairtype) => ???
+      case Mixture(product1, product2) => ???
+    }
 }
+
+val pr1 = Showerproduct.Shampoo(Hairtype.Normal)
+val pr2 = Showerproduct.Soap(7)
+val pr3 = Showerproduct.Mixture(pr1, pr2)
+val pr4 = Showerproduct.Mixture(pr3, Showerproduct.Soap(5))
+
+
