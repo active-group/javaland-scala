@@ -315,11 +315,15 @@ def rev2[A](list: List[A], acc: List[A]): List[A] =
   }
 
 // Index eines Elements in einer Liste finden
-def listIndex(list: List[A], element: A): Option[Integer] =
+def listIndex[A](list: List[A], element: A): Option[Integer] =
   list match {
     case Nil => None
     case first :: rest => 
       if first == element
       then Some(0)
-      else listIndex(rest , element)
+      else 
+        listIndex(rest, element) match {
+          case None => None
+          case Some(index) => Some(index+1)
+        }
   }
