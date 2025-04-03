@@ -245,18 +245,10 @@ def isOdd(x: Integer): Boolean = x % 2 != 0
 
 def extractOdds(list: List[Integer]): List[Integer] =
   list match {
-    case Nil => ???
-    case first :: rest => ???
-    if isOdd(first)
-    then first :: extractOdds(rest)
-    else extractOdds(rest)
+    case Nil => Nil
+    case first :: rest => 
+      if isOdd(first)
+      then first :: extractOdds(rest)
+      else extractOdds(rest)
   }
 
-def filter(list: List[Integer]): List[Integer] =
-  list match {
-    case Nil => ???
-    case first :: rest => ???
-    if isOdd(first)
-    then first :: filter(rest)
-    else filter(rest)
-  }
