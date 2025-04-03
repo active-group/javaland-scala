@@ -20,3 +20,7 @@ enum Currency {
 enum Contract {
   case ZeroCouponBond(date: Date, amount: Amount, currency: Currency)
 }
+
+import Contract._
+
+val zcb1 = ZeroCouponBond(Date("2025-12-24"), 100, Currency.EUR)
