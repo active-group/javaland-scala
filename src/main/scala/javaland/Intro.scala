@@ -208,7 +208,7 @@ enum Shape {
 val list1: List[Integer] = 5 :: Nil
 
 // 2elementige Liste: 8 5
-val list2: List[Integer] = (8: Integer) :: 5 :: Nil
+val list2: List[Integer] = (8: Integer) :: (5: Integer) :: Nil
 
 // 3elementige Liste
 val list3: List[Integer] = List(4, 8, 5)
