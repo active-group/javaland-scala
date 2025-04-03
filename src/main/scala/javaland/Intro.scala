@@ -272,7 +272,7 @@ val highway = List(dillo1, dillo2, parrot1)
 extension (list: List[Animal])
   def runOver = list.map(_.runOver)
 
-val deadAnimals = highway.runOver
+val deadAnimals = highway.runOve
 
 
 val tuple1 = ("Mike", Cat, dillo1)
