@@ -102,9 +102,10 @@ enum Animal {
 
   def runOver: Animal =
     this match {
-      case Dillo(l, w) =>
+      case Dillo(_, w) =>
         Dillo(Liveness.Dead, w)
-      case Parrot(s, w) => ???
+      case Parrot(_, w) =>
+        Parrot("", w)
     }
 }
 
