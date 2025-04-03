@@ -25,7 +25,7 @@ enum Currency {
 enum Contract {
   // case ZeroCouponBond(date: Date, amount: Amount, currency: Currency)
   case One(currency: Currency)
-  case More(amount: Amount, currency: Currency)
+  case More(amount: Amount, contract: Contract)
 }
 
 import Contract._
