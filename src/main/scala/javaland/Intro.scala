@@ -147,9 +147,11 @@ enum Showerproduct {
   // Seifenanteil, zwischen 0.0 und 1.0
   def soapProportion: Double =
     this match {
-      case Soap(pH) => ???
-      case Shampoo(hairtype) => ???
-      case Mixture(product1, product2) => ???
+      case Soap(pH) => 1.0
+      case Shampoo(hairtype) => 0.0
+      case Mixture(product1, product2) =>
+        // Selbstbezug => rekursiver Aufruf
+      (product1.soapProportion + nproduct2.soapProportion) / 2.0
     }
 }
 
