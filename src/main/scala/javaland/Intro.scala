@@ -237,6 +237,7 @@ def extractEvens(list: List[Integer]): List[Integer] =
 //        case false => extractEvens(rest)
 //      }
         if isEven(first)
-            first :: extractEvens(rest)
-        else extractEvens(rest)
+             first :: extractEvens(rest)
+        else 
+             extractEvens(rest)
   }
