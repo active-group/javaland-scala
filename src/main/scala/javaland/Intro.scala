@@ -173,7 +173,7 @@ case class Point(x: Double, y: Double)
 def distance(point1: Point, point2: Point) = {
   val dx = point1.x - point2.x
   val dy = point1.y - point2.y
-  sqrt((dx*dx) + (dy*dy))
+  Math.sqrt((dx*dx) + (dy*dy))
 }
   
 enum Shape {
