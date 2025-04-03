@@ -262,3 +262,5 @@ def filter[A](p: A => Boolean, list: List[A]): List[A] =
   }
 
 val evens = filter(isEven, list4)
+
+val highway = List(dillo1, dillo2, parrot1)
