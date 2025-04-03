@@ -1,5 +1,7 @@
 package javaland
 
+import scala.annotation.tailrec
+
 val s = "Mike"
 
 // Ein Haustier ist eins der folgenden:
