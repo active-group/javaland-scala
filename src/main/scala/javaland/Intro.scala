@@ -367,4 +367,6 @@ given [A]: Monoid[List[A]] with {
   def op(a1: List[A], a2: List[A]): List[A] = a1 ++ a2
 }
 
-
+extension (thing: A)
+  def op(other: A)(using monoid: Monoid[A]) =
+    monoid.op(thing, other)
