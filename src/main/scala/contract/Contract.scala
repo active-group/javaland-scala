@@ -30,6 +30,7 @@ enum Contract {
 }
 
 import Contract._
+import Currency._
 
 // "Ich bekomme 1€ jetzt."
 val c1 = One(Currency.EUR)
