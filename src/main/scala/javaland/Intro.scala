@@ -227,3 +227,16 @@ def listSum(list: List[Integer]): Integer =
 
 // aus einer Liste von Integers die geraden Zahlen extrahieren
 def isEven(x: Integer): Boolean = x % 2 == 0
+
+def extractEvens(list: List[Integer]): List[Integer] =
+  list match {
+    case Nil => Nil
+    case first :: rest =>
+//      isEven(first) match {
+//        case true => first :: extractEvens(rest)
+//        case false => extractEvens(rest)
+//      }
+        if isEven(first)
+        then first :: extractEvens(rest)
+        else extractEvens(rest)
+  }
