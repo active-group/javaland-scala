@@ -9,6 +9,11 @@ package contract
  *    - Währung
  *    - Betrag
  *    - Später
+ *    ... dabei nach Selbstbezügen schauen => Kombinatoren
+ * 3. wiederholen
+ * 
+ * Currency Swap:
+ * Am 24.12.2025 bekomme ich 100€ und ich zahle 10000 Yen.
  */
 
 case class Date(iso: String)
@@ -27,6 +32,7 @@ enum Contract {
   case One(currency: Currency)
   case More(amount: Amount, contract: Contract)
   case Timed(date: Date, contract: Contract)
+  case And(contract1: Contract, contract2: Contract)
 }
 
 import Contract._
@@ -42,3 +48,4 @@ def zeroCouponBond(date: Date, amount: Amount, currency: Currency): Contract =
   Timed(date, More(amount, One(currency)))
 
 val zcb1 = zeroCouponBond(Date("2025-12-24"), 100, Currency.EUR)
+val zcb2 = zeroCouponBond(Date("2025-12-24"), 10000, Yen)
