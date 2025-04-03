@@ -151,7 +151,7 @@ enum Showerproduct {
       case Shampoo(hairtype) => 0.0
       case Mixture(product1, product2) =>
         // Selbstbezug => rekursiver Aufruf
-      (product1.soapProportion + product2.soapProportion) / 2.0
+        (product1.soapProportion + product2.soapProportion) / 2.0
     }
 }
 
@@ -160,4 +160,12 @@ val pr2 = Showerproduct.Soap(7)
 val pr3 = Showerproduct.Mixture(pr1, pr2)
 val pr4 = Showerproduct.Mixture(pr3, Showerproduct.Soap(5))
 
+// Eine geometrische Figur (Shape) ist eins der folgenden:
+// - Kreis -ODER-
+// - Quadrat -ODER-
+// - eine Überlagerung zweier geometrischer Figuren
+
+// 1. Datenmodellierung
+// 2. Funktion, die für einen Punkt feststellt, ob er innerhalb
+//    einer geometrischen Figur liegt
 
