@@ -196,8 +196,9 @@ enum Shape {
 }
 
 // Eine Liste ist eins der folgenden:
-// - die leere Liste
-// - eine Cons-Liste aus erstem Element und Rest
+// - die leere Liste -ODER-
+// - eine Cons-Liste aus erstem Element und Rest-Liste
+//                                               ^^^^^ Selbstbezug
 
 // Scala: List[...]
 // leere Liste: Nil
@@ -214,3 +215,15 @@ val list3 = List(4, 8, 5)
 
 // 4elementige Liste: 7 4 8 5
 val list4 = 7 :: list3
+
+def listSum(list: List[Integer]): Integer =
+  list match {
+    case Nil =>0 // neutrales Element von +
+    case first :: rest =>
+      first + rest.listSum
+  }
+
+// neutrales Element ... Gruppen
+
+// aus einer Liste von Integers die geraden Zahlen extrahieren
+def isEven(x: Integer): Boolean = x % 2 == 0
