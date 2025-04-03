@@ -339,4 +339,18 @@ def listIndex[A](list: List[A], element: A): Option[Integer] =
 // - op(a1: A, a2: A): A
 // - op(a1, op(a2, a3)) = op(op(a1, a2), a3)  // Assoziativität 
 
-// neutrales Element
+trait Semigroup[A] {
+  // muß gelten:
+  // op(a1, op(a2, a3)) = op(op(a1, a2), a3)
+  def op(a1: A, a2: A): A
+}
+
+// Halbgruppe +
+// neutral: A
+// op(x, neutral) == op(neutral, x) == x
+// => Monoid
+
+trait Monoid[A] extends Semigroup[A] {
+  def neutral: A
+}
+
