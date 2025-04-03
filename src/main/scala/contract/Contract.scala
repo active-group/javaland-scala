@@ -32,6 +32,6 @@ import Contract._
 
 // "Ich bekomme 1€ jetzt."
 val c1 = One(Currency.EUR)
-val c2 = More(100, Currency.EUR)
+val c2 = More(100, One(Currency.EUR))
 
 // val zcb1 = ZeroCouponBond(Date("2025-12-24"), 100, Currency.EUR)
