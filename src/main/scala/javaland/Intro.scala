@@ -252,3 +252,12 @@ def extractOdds(list: List[Integer]): List[Integer] =
       else extractOdds(rest)
   }
 
+def filter(list: List[Integer]): List[Integer] =
+  list match {
+    case Nil => Nil
+    case first :: rest => 
+      if p(first)
+      then first :: filter(rest)
+      else filter(rest)
+  }
+
