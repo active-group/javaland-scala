@@ -352,6 +352,13 @@ trait Semigroup[A] {
 
 trait Monoid[A] extends Semigroup[A] {
   def neutral: A
+
+  def opAll(list: List[A]): A =
+    list match {
+      case Nil => neutral
+      case first :: rest =>
+        op(first, opAll(rest))
+    }
 }
 
 given [A]: Monoid[List[A]] with {
