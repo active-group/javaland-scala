@@ -270,3 +270,9 @@ val highway = List(dillo1, dillo2, parrot1)
 val deadAnimals = highway.map { _.runOver }
 
 val tuple1 = ("Mike", Cat, dillo1)
+
+def partition[A](p: A => Boolean, list: List[A]): (List[A], List[A]) =
+  list match {
+    case Nil => ???
+    case first :: rest => ???
+  }
