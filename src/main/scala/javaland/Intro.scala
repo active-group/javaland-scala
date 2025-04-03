@@ -119,8 +119,8 @@ val parrot1 = Animal.Parrot("Welcome!", 1)
 
 // Im Kosmetikladen gibt es:
 
-// - Seife
-// - Shampoo
+// - Seife -ODER-
+// - Shampoo -ODER
 // - Duschgel, bestehend aus Seife UND Shampoo
 
 type PH = Double
@@ -130,8 +130,14 @@ enum Hairtype {
   case Oily
 }
 
+/* 1. Versuch: unflexibel
 case class Soap(pH: PH)
-
 case class Shampoo(hairtype: Hairtype)
-
 case class Showergel(soap: Soap, shampoo: Shampoo)
+*/
+
+enum Showerproduct {
+  case Soap(pH: PH)
+  case Shampoo(hairtype: Hairtype)
+  case Showergel(soap: Soap, shampoo: Shampoo)
+}
