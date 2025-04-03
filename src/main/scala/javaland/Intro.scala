@@ -161,7 +161,7 @@ val pr1 = Showerproduct.Shampoo(Hairtype.Normal)
 val pr2 = Showerproduct.Soap(7)
 val pr3 = Showerproduct.Mixture(pr1, pr2)
 val pr4 = Showerproduct.Mixture(Showerproduct.Mixture(pr1, pr2), Showerproduct.Soap(5))
-val pr5 = Showerproduct.Mixture(pr1, ShowerProduct.Mixture(pr2, ShowerProduct.Soap(5)))
+val pr5 = Showerproduct.Mixture(pr1, Showerproduct.Mixture(pr2, Showerproduct.Soap(5)))
 
 // Eine geometrische Figur (Shape) ist eins der folgenden:
 // - Kreis -ODER-
