@@ -67,4 +67,5 @@ val c4 = Invert(Invert(c2)) // == c2
 case class Payment(direction: Direction, date: Date, amount: Amount, currency: Currency)
 
 // Semantik
-def meaning(contract: Contract): List[Payment] = ???
+// alle Zahlungen bis today
+def meaning(contract: Contract, today: Date): List[Payment] = ???
