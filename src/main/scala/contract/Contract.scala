@@ -40,6 +40,7 @@ enum Contract {
   case And(contract1: Contract, contract2: Contract)
   case Invert(contract: Contract)
   case Zero
+  // case Done(contract: Contract)
 }
 
 
@@ -67,5 +68,5 @@ val c4 = Invert(Invert(c2)) // == c2
 case class Payment(direction: Direction, date: Date, amount: Amount, currency: Currency)
 
 // Semantik
-// alle Zahlungen bis today
-def meaning(contract: Contract, today: Date): List[Payment] = ???
+// alle Zahlungen bis today ... und "Residualvertrag"
+def meaning(contract: Contract, today: Date): (List[Payment], Contract) = ???
