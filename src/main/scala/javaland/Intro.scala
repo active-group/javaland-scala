@@ -94,3 +94,6 @@ case class Dillo(liveness: Liveness, weight: Weight) {
     }
 }
 
+enum Animal {
+  case class Dillo(liveness: Liveness, weight: Weight)
+}
