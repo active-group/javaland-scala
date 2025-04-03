@@ -285,3 +285,17 @@ def partition[A](p: A => Boolean, list: List[A]): (List[A], List[A]) =
       then (first :: trues, falses)
       else (trues, first :: falses)
   }
+
+def appendElement[A](list: List[A], element: A): List[A] =
+  list match {
+    case Nil => List(element)
+    case first :: rest =>
+      first :: appendElement(rest, element)
+  }
+
+def rev[A](list: List[A]): List[A] =
+  list match {
+    case Nil => Nil
+    case first :: rest =>
+      appendElement(rev(rest), first)
+  }
