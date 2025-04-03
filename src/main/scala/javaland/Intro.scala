@@ -57,7 +57,13 @@ def msmToTime(msm: Int): Time =
     val minute = msm % 60
     Time(hour = msm / 60, minute = msm % 60)
 
-// Tiere auf dem texanischen Highway
+// Tier auf dem texanischen Highway:
+// - Gürteltier -ODER-
+// - Papagei
+
+// Papagei hat folgende Eigenschaften:
+// - Satz
+// - Gewicht
 
 // Gürteltier hat folgende Eigenschaften:
 // - (lebendig ODER tot)   -UND-
@@ -79,10 +85,12 @@ case class Dillo(liveness: Liveness, weight: Weight) {
         Dillo(Liveness.Dead, this.weight)
 
     // Gürteltier füttern
-    def feed(amount: Weight): Dillo =
-        this.liveness match {
-            case Liveness.Alive => 
-                Dillo(Liveness.Alive, weight + amount)
-            case Liveness.Dead => this
-        }
+    def feed(amount: Weight): Dillo = {
+      this.liveness match {
+          case Liveness.Alive => 
+              Dillo(Liveness.Alive, weight + amount)
+          case Liveness.Dead => this
+      }
+    }
 }
+
