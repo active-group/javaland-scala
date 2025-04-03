@@ -27,13 +27,20 @@ enum Currency {
   case YEN
 }
 
+enum Direction {
+  case Long
+  case Short
+}
+
 enum Contract {
   // case ZeroCouponBond(date: Date, amount: Amount, currency: Currency)
   case One(currency: Currency)
   case More(amount: Amount, contract: Contract)
   case Timed(date: Date, contract: Contract)
   case And(contract1: Contract, contract2: Contract)
+  case Directed(direction: Direction, contract: Contract)
 }
+
 
 import Contract._
 import Currency._
@@ -49,3 +56,5 @@ def zeroCouponBond(date: Date, amount: Amount, currency: Currency): Contract =
 
 val zcb1 = zeroCouponBond(Date("2025-12-24"), 100, Currency.EUR)
 val zcb2 = zeroCouponBond(Date("2025-12-24"), 10000, YEN)
+
+val fxSwap = And(zcb1, Directed(Direction.Short, zcb2))
