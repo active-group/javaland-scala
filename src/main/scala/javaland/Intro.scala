@@ -261,3 +261,4 @@ def filter(p: Integer => Boolean, list: List[Integer]): List[Integer] =
       else filter(p, rest)
   }
 
+val evens = filter(isEven, list4)
