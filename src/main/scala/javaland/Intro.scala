@@ -265,4 +265,5 @@ val evens = filter(isEven, list4)
 
 val highway = List(dillo1, dillo2, parrot1)
 
-val deadAnimals = highway.map({ animal => animal.runOver })
+// val deadAnimals = highway.map({ animal => animal.runOver })
+val deadAnimals = highway.map { animal => animal.runOver }
