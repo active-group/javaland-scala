@@ -97,6 +97,13 @@ case class Dillo(liveness: Liveness, weight: Weight) {
 enum Animal {
   case Dillo(liveness: Liveness, weight: Weight) 
   case Parrot(sentence: String, weight: Weight)
+
+  def runOver: Animal =
+    this match {
+      case Dillo(l, w) =>
+        Dillo(Liveness.Dead, this.weight)
+      case Parrot(s, w) => ???
+    }
 }
 
 // lebendiges Gürteltier, 10kg
