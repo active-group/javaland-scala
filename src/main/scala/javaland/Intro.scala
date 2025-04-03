@@ -117,9 +117,10 @@ val dillo2 = Animal.Dillo(Liveness.Dead, 8)
 // Begrüßungspapagei
 val parrot1 = Animal.Parrot("Welcome!", 1)
 
-// Duschprodukt:
-// - Seife -ODER-
-// - Shampoo -ODER-
+// Im Kosmetikladen gibt es:
+
+// - Seife
+// - Shampoo
 // - Duschgel, bestehend aus Seife UND Shampoo
 
 type PH = Double
@@ -128,3 +129,9 @@ enum Hairtype {
   case Dandruff
   case Oily
 }
+
+case class Soap(pH: PH)
+
+case class Shampoo(hairtype: Hairtype)
+
+case class Showergel(soap: Soap, shampoo: Shampoo)
