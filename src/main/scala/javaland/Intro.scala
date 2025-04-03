@@ -77,6 +77,7 @@ enum Liveness {
     case Dead
 }
 type Weight = Double
+/*
 // Repräsentation des Zustands des Gürteltiers
 // zu einem bestimmten Zeitpunkt
 case class Dillo(liveness: Liveness, weight: Weight) {
@@ -93,6 +94,7 @@ case class Dillo(liveness: Liveness, weight: Weight) {
       }
     }
 }
+*/
 
 enum Animal {
   case Dillo(liveness: Liveness, weight: Weight) 
