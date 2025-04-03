@@ -354,3 +354,7 @@ trait Monoid[A] extends Semigroup[A] {
   def neutral: A
 }
 
+given [A]: Monoid[List[A]] with {
+  def neutral = Nil
+  def op(a1: List[A], a2: List[A]): List[A] = a1 ++ a2
+} 
