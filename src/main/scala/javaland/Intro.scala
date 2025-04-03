@@ -273,6 +273,8 @@ val tuple1 = ("Mike", Cat, dillo1)
 
 def partition[A](p: A => Boolean, list: List[A]): (List[A], List[A]) =
   list match {
-    case Nil => ???
-    case first :: rest => ???
+    case Nil => (Nil, Nil)
+    case first :: rest =>
+      val tuple = partition(rest)
+      ???
   }
