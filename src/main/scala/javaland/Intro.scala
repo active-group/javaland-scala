@@ -304,9 +304,10 @@ def rev[A](list: List[A]): List[A] =
 // 1 + 2 + ... + (n-1) + n = (1+n)*n/2 =O(n^2)
 
 // acc: Akkumulator, Zwischenergebnis
+@tailrec
 def rev2[A](list: List[A], acc: List[A]): List[A] =
   list match {
     case Nil => acc
     case first :: rest =>
-      rev2(rest, first :: acc)
+      rev2(rest, first :: acc) // tail call
   }
