@@ -26,6 +26,7 @@ enum Contract {
   // case ZeroCouponBond(date: Date, amount: Amount, currency: Currency)
   case One(currency: Currency)
   case More(amount: Amount, contract: Contract)
+  case Timed(date: Date, contract: Contract)
 }
 
 import Contract._
