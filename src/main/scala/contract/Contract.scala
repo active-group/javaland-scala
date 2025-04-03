@@ -47,6 +47,7 @@ import Currency._
 
 // "Ich bekomme 1€ jetzt."
 val c1 = One(Currency.EUR)
+// "Ich bekomme 100€ jetzt."
 val c2 = More(100, One(Currency.EUR))
 
 // val zcb1 = Timed(Date("2025-12-24"), More(100, One(EUR)))
@@ -60,3 +61,4 @@ val zcb2 = zeroCouponBond(Date("2025-12-24"), 10000, YEN)
 val fxSwap = And(zcb1, Directed(Direction.Short, zcb2))
 
 val c3 = Directed(Direction.Long, c2)
+val c4 = Directed(Direction.Short, Directed(Direction.Short, c2))
