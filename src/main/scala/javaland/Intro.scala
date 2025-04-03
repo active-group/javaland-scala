@@ -220,7 +220,7 @@ def listSum(list: List[Integer]): Integer =
   list match {
     case Nil =>0 // neutrales Element von +
     case first :: rest =>
-      first + rest.listSum
+      first + listSum(list)
   }
 
 // neutrales Element ... Gruppen
