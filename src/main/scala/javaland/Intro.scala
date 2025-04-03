@@ -140,4 +140,5 @@ enum Showerproduct {
   case Soap(pH: PH)
   case Shampoo(hairtype: Hairtype)
   case Showergel(soap: Soap, shampoo: Shampoo)
+  case Mixture(product1: Showerproduct, product2: Showerproduct)
 }
