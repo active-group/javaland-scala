@@ -208,13 +208,13 @@ enum Shape {
 val list1: List[Integer] = 5 :: Nil
 
 // 2elementige Liste: 8 5
-val list2 = 8 :: 5 :: Nil
+val list2: List[Integer] = 8 :: 5 :: Nil
 
 // 3elementige Liste
-val list3 = List(4, 8, 5)
+val list3: List[Integer] = List(4, 8, 5)
 
 // 4elementige Liste: 7 4 8 5
-val list4 = 7 :: list3
+val list4: List[Integer] = 7 :: list3
 
 def listSum(list: List[Integer]): Integer =
   list match {
