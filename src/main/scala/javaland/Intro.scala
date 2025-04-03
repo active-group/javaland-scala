@@ -96,6 +96,7 @@ case class Dillo(liveness: Liveness, weight: Weight) {
 }
 */
 
+// algebraischer Datentyp: Summe aus Produkten
 enum Animal {
   case Dillo(liveness: Liveness, weight: Weight) 
   case Parrot(sentence: String, weight: Weight)
@@ -115,3 +116,15 @@ val dillo1 = Animal.Dillo(Liveness.Alive, 10)
 val dillo2 = Animal.Dillo(Liveness.Dead, 8)
 // Begrüßungspapagei
 val parrot1 = Animal.Parrot("Welcome!", 1)
+
+// Duschprodukt:
+// - Seife -ODER-
+// - Shampoo -ODER-
+// - Duschgel, bestehend aus Seife UND Shampoo
+
+type PH = Double
+enum Hairtype {
+  case Normal
+  case Dandruff
+  case Oily
+}
